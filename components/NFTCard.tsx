@@ -18,6 +18,7 @@ export default function NFTCard({nft}: Props) {
         tokenId: nft.nft.metadata.id
     })
     if (loadingMarketplace || loadingDirectListing) return <LoadingNFT/>
+    if (!data || data.length === 0) return null
     return <LoadedNFT nft={nft.nft} directListing={data?.[0]}/>
 }
 
