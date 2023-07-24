@@ -5,12 +5,10 @@ import {NoSSR} from "next/dist/shared/lib/lazy-dynamic/dynamic-no-ssr";
 
 
 export const Layout = ({children}) => (
-    <NoSSR>
         <Box css={{
             maxW: '100%'
         }}>
             {children}
             <ToastContainer/>
         </Box>
-    </NoSSR>
 )

@@ -61,7 +61,6 @@ export default function SaleInfo({marketplace, nftContract, nft}: Props) {
                     }}>
                     CREATE LISTING
                 </Web3Button>
-
             </Col>
     )
 }

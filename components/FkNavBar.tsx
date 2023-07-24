@@ -9,7 +9,7 @@ type Props = {
 }
 export default function FkNavBar({activeTab}: Props) {
     return (
-        <Navbar isBordered variant='sticky'>
+        <Navbar isBordered variant='floating'>
             <Navbar.Brand>
                 <Text b>FLIPKART NFT PORTAL</Text>
             </Navbar.Brand>

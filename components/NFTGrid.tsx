@@ -1,7 +1,7 @@
 import {NFT} from "@thirdweb-dev/sdk";
 import {Grid, Loading, useModal, Text} from "@nextui-org/react";
 import React, {useState} from "react";
-import NFTCardV2 from "./NFTCardV2";
+import NFTCard from "./NFTCard";
 import NFTDetailsModal from "./NFTDetailsModal";
 import {FK_NFT} from "../tools/FkNFTManager";
 
@@ -21,7 +21,7 @@ export default function NFTGrid({isLoading, nfts, type}: Props) {
     return (
         <div>
             {!!selectedNFT && <NFTDetailsModal type={type} nft={selectedNFT} setVisible={setVisible} bindings={{...bindings, onClose: () => setSelectedNFT(undefined)}}/>}
-            <Grid.Container gap={4} justify='center'>
+            <Grid.Container gap={4} justify='flex-start'>
                 {isLoading ? (
                     [...Array(6)].map((_, index) => <Grid key={index} xs={gridSize}><Loading type='gradient' size='lg'
                                                                                              style={{padding: '8rem'}}/></Grid>)
@@ -32,7 +32,7 @@ export default function NFTGrid({isLoading, nfts, type}: Props) {
                                 setSelectedNFT(value)
                                 setVisible(true)
                             }}>
-                                <NFTCardV2 nft={value}/>
+                                <NFTCard nft={value}/>
                             </div>
                         </Grid>
                     ))
