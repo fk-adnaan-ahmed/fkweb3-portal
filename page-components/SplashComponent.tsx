@@ -1,4 +1,4 @@
-import {Progress, Text} from "@nextui-org/react";
+import {Progress} from "@nextui-org/react";
 import {ConnectWallet} from "@thirdweb-dev/react";
 import React from "react";
 
@@ -6,7 +6,9 @@ export interface SplashComponentProps {
     address: string | undefined
     progress: number
 }
+
 export default function SplashComponent({address, progress}: SplashComponentProps) {
+
     return (
         <div style={{
             flexDirection: 'column',
@@ -23,7 +25,8 @@ export default function SplashComponent({address, progress}: SplashComponentProp
                     align: "center",
                 }}
             />
-            <Progress style={{width: '400px'}} indeterminated={!address} value={progress} color='secondary' status='secondary'/>
+            <Progress style={{width: '400px'}} indeterminated={!address} value={progress} color='secondary'
+                      status='secondary'/>
         </div>
     )
 }

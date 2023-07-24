@@ -1,6 +1,7 @@
 import {SmartContract} from "@thirdweb-dev/sdk";
 import {Dispatch, SetStateAction} from "react";
 import {ethers} from "ethers";
+import {showToast} from "./Toast";
 
 export function setTotalCount(address: string | undefined, id: number, contract: SmartContract, setterFun: Dispatch<SetStateAction<string>>): void {
     if (!address) return;

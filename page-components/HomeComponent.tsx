@@ -1,9 +1,9 @@
-import {useContext, useState} from "react";
+import {useContext} from "react";
 import {Layout} from "../components/Layout";
 import FkNavBar from "../components/FkNavBar";
 import {Grid, Text} from "@nextui-org/react";
 import {FLIP_PASS_CONTRACT_ADDRESS} from "../constants/addresses";
-import DirectoryManager, {Directory} from "../tools/DirectoryManager";
+import {Directory} from "../tools/DirectoryManager";
 import NFTCard from "../components/NFTCard";
 import {SmartContract} from "@thirdweb-dev/sdk";
 import {PageComponentProps} from "../models/PageComponentProps";
@@ -18,7 +18,7 @@ export default function HomeComponent({address, contract}: PageComponentProps) {
     return (
         <Layout>
             <FkNavBar activeTab='home'/>
-            <HomeContent directory={directory} address={address} contract={contract} />
+
         </Layout>
     )
 }

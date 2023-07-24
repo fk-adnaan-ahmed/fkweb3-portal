@@ -1,13 +1,12 @@
 import type {AppProps} from "next/app";
-import {magicLink, ThirdwebProvider} from "@thirdweb-dev/react";
+import {magicLink, metamaskWallet, ThirdwebProvider} from "@thirdweb-dev/react";
 import "../styles/globals.css";
 import {MAGIC_LINK_API_KEY, RELAYER_URL} from "../constants/keys";
-import {Mumbai} from "@thirdweb-dev/chains";
 import {createTheme, NextUIProvider} from "@nextui-org/react";
 import {ThemeProvider} from "next-themes";
-import {Directory} from "../tools/DirectoryManager";
-import React, {useState} from "react";
-import {DirectoryContext} from "../tools/DirectoryContext";
+import React from "react";
+import {SDKOptions} from "@thirdweb-dev/sdk";
+import {Mumbai} from "@thirdweb-dev/chains";
 
 // This is the chain your dApp will work on.
 // Change this to the chain your app is built for.
@@ -28,8 +27,14 @@ function MyApp({Component, pageProps}: AppProps) {
         }
     })
 
-    const _directory: Directory = {};
-    const [directory, setDirectory] = useState(_directory)
+    const sdkOptions: Omit<SDKOptions, "chains"> = {
+        gasless: {
+            openzeppelin: {
+                relayerUrl: RELAYER_URL
+            }
+        }
+    }
+
 
     return (
         <ThemeProvider
@@ -46,19 +51,11 @@ function MyApp({Component, pageProps}: AppProps) {
                     supportedWallets={[
                         magicLink({
                             apiKey: MAGIC_LINK_API_KEY
-                        })
+                        }),
+                        metamaskWallet()
                     ]}
-                    sdkOptions={{
-                        gasless: {
-                            openzeppelin: {
-                                relayerUrl: RELAYER_URL
-                            }
-                        }
-                    }}
                 >
-                    <DirectoryContext.Provider value={{directory, setDirectory}}>
                         <Component {...pageProps} />
-                    </DirectoryContext.Provider>
                 </ThirdwebProvider>
             </NextUIProvider>
         </ThemeProvider>

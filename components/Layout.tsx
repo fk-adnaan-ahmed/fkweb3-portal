@@ -1,11 +1,16 @@
 import {Box} from "./Box";
-import {PlaceholderContent} from "./PlaceholderContent";
+import {ToastContainer} from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+import {NoSSR} from "next/dist/shared/lib/lazy-dynamic/dynamic-no-ssr";
+
 
 export const Layout = ({children}) => (
-    <Box css={{
-        maxW: '100%'
-    }}>
-        {children}
-        {/*<PlaceholderContent/>*/}
-    </Box>
+    <NoSSR>
+        <Box css={{
+            maxW: '100%'
+        }}>
+            {children}
+            <ToastContainer/>
+        </Box>
+    </NoSSR>
 )
