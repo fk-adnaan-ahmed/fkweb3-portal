@@ -22,6 +22,8 @@ export default function FkNavBar({activeTab}: Props) {
                                                                             style={{color: 'white'}}>Sell</Link></Navbar.Link>
                 <Navbar.Link href='#' isActive={activeTab === 'transfer'}><Link href='/transfer'
                                                                             style={{color: 'white'}}>Transfer</Link></Navbar.Link>
+                <Navbar.Link href='#' isActive={activeTab === 'avatar'}><Link href='/create'
+                                                                                style={{color: 'white'}}>Avatar</Link></Navbar.Link>
 
             </Navbar.Content>
             <Navbar.Content activeColor='secondary' variant='underline'>
