@@ -32,7 +32,7 @@ export default function NFTGrid({isLoading, nfts, type}: Props) {
                                 setSelectedNFT(value)
                                 setVisible(true)
                             }}>
-                                <NFTCard nft={value}/>
+                                <NFTCard nft={value} shouldSkipUnlisted={type === 'buy'}/>
                             </div>
                         </Grid>
                     ))

@@ -9,16 +9,17 @@ import {FK_NFT} from "../tools/FkNFTManager";
 
 type Props = {
     nft: FK_NFT
+    shouldSkipUnlisted: boolean
 }
 
-export default function NFTCard({nft}: Props) {
+export default function NFTCard({nft, shouldSkipUnlisted}: Props) {
     const {contract: marketplace, isLoading: loadingMarketplace} = useContract(MARKETPLACE_ADDRESS, "marketplace-v3");
     const {data, isLoading: loadingDirectListing} = useValidDirectListings(marketplace, {
         tokenContract: nft.address,
         tokenId: nft.nft.metadata.id
     })
     if (loadingMarketplace || loadingDirectListing) return <LoadingNFT/>
-    if (!data || data.length === 0) return null
+    if ((!data || data.length === 0) && shouldSkipUnlisted) return null
     return <LoadedNFT nft={nft.nft} directListing={data?.[0]}/>
 }
 
