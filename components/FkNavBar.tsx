@@ -11,7 +11,7 @@ export default function FkNavBar({activeTab}: Props) {
     return (
         <Navbar isBordered variant='floating'>
             <Navbar.Brand>
-                <Text b>FLIPKART NFT PORTAL</Text>
+                <Link href='/' style={{color: 'white'}}>FK NFT</Link>
             </Navbar.Brand>
             <Navbar.Content hideIn='xs' activeColor='secondary' variant='underline'>
                 <Navbar.Link href='#' isActive={activeTab === 'home'}><Link href='/'

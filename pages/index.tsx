@@ -8,6 +8,7 @@ import {showToast} from "../tools/Toast";
 import {Layout} from "../components/Layout";
 import FkNavBar from "../components/FkNavBar";
 import {Spacer} from "@nextui-org/react";
+import Link from "next/link";
 
 const Home: NextPage = () => {
     const address = useAddress();
@@ -59,68 +60,62 @@ const Temp = () => (
 
 
             <div className={styles.grid}>
-                <a
-                    href="https://portal.thirdweb.com/"
-                    className={styles.card}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    <Image
-                        src="/images/portal-preview.png"
-                        alt="Placeholder preview of starter"
-                        width={300}
-                        height={200}
-                    />
-                    <div className={styles.cardText}>
-                        <h2 className={styles.gradientText1}>Portal ➜</h2>
-                        <p>
-                            Guides, references, and resources that will help you build with
-                            thirdweb.
-                        </p>
+                <Link href='/buy' style={{color: 'white'}}>
+                    <div
+                        className={styles.card}
+                    >
+                        <Image
+                            src="/images/portal-preview.png"
+                            alt="Placeholder preview of starter"
+                            width={300}
+                            height={200}
+                        />
+                        <div className={styles.cardText}>
+                            <h2 className={styles.gradientText1}>Buy NFTs ➜</h2>
+                            <p>
+                                Browse through the plethora of NFTs will are released. It can be special discount
+                                coupons or pass for exclusive services like priority shipping and pre-order.
+                            </p>
+                        </div>
                     </div>
-                </a>
-
-                <a
-                    href="https://thirdweb.com/dashboard"
-                    className={styles.card}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    <Image
-                        src="/images/dashboard-preview.png"
-                        alt="Placeholder preview of starter"
-                        width={300}
-                        height={200}
-                    />
-                    <div className={styles.cardText}>
-                        <h2 className={styles.gradientText2}>Dashboard ➜</h2>
-                        <p>
-                            Deploy, configure, and manage your smart contracts from the
-                            dashboard.
-                        </p>
+                </Link>
+                <Link href='/sell' style={{color: 'white'}}>
+                    <div
+                        className={styles.card}
+                    >
+                        <Image
+                            src="/images/dashboard-preview.png"
+                            alt="Placeholder preview of starter"
+                            width={300}
+                            height={200}
+                        />
+                        <div className={styles.cardText}>
+                            <h2 className={styles.gradientText2}>Sell ➜</h2>
+                            <p>
+                                Sell your owned NFTs to other Flip users. You can swap up for something much cooler or
+                                just sell it for profit. Everything is in MATIC after all.
+                            </p>
+                        </div>
                     </div>
-                </a>
-
-                <a
-                    href="https://thirdweb.com/templates"
-                    className={styles.card}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    <Image
-                        src="/images/templates-preview.png"
-                        alt="Placeholder preview of templates"
-                        width={300}
-                        height={200}
-                    />
-                    <div className={styles.cardText}>
-                        <h2 className={styles.gradientText3}>Templates ➜</h2>
-                        <p>
-                            Discover and clone template projects showcasing thirdweb
-                            features.
-                        </p>
+                </Link>
+                <Link href='/profile' style={{color: 'white'}}>
+                    <div
+                        className={styles.card}
+                    >
+                        <Image
+                            src="/images/templates-preview.png"
+                            alt="Placeholder preview of templates"
+                            width={300}
+                            height={200}
+                        />
+                        <div className={styles.cardText}>
+                            <h2 className={styles.gradientText3}>Profile ➜</h2>
+                            <p>
+                                Checkout your owned NFTs which can give you access to exclusive benefits or special unique discount codes just for you.
+                            </p>
+                        </div>
                     </div>
-                </a>
+                </Link>
             </div>
         </div>
     </main>
